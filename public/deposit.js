@@ -4,7 +4,7 @@ function Deposit(){
 
   return (
     <Card
-      bgcolor="warning"
+      bgcolor="light"
       header="Deposit"
       status={status}
       body={show ? 
@@ -68,3 +68,5 @@ function DepositForm(props){
 
   </>);
 }
+
+export default Deposit

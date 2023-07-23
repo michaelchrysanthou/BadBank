@@ -1,25 +1,54 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
+
+// Import the functions you need from the SDKs you need
+//import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBtXjSItk-vtsTznMz-XSNoqudlKB-l4Pw",
+  authDomain: "badbank-66367.firebaseapp.com",
+  projectId: "badbank-66367",
+  storageBucket: "badbank-66367.appspot.com",
+  messagingSenderId: "276620243521",
+  appId: "1:276620243521:web:d468c25630eddaf7844cc0"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
 function CreateAccount(){
   const [show, setShow]     = React.useState(true);
   const [status, setStatus] = React.useState('');
 
+
   return (
-    <Card
-      bgcolor="primary"
+
+     <Card
+      bgcolor="light"
       header="Create Account"
       status={status}
       body={show ? 
         <CreateForm setShow={setShow}/> : 
-        <CreateMsg setShow={setShow}/>}
+        <CreateMsg  setShow={setShow}/>}
     />
   )
 }
 
 function CreateMsg(props){
-  return(<>
+  return(
+  <>
     <h5>Success</h5>
     <button type="submit" 
       className="btn btn-light" 
       onClick={() => props.setShow(true)}>Add another account</button>
+      
   </>);
 }
 
@@ -27,19 +56,22 @@ function CreateForm(props){
   const [name, setName]         = React.useState('');
   const [email, setEmail]       = React.useState('');
   const [password, setPassword] = React.useState('');
+ 
 
-  function handle(){
-    console.log(name,email,password);
-    const url = `/account/create/${name}/${email}/${password}`;
-    (async () => {
-        var res  = await fetch(url);
-        var data = await res.json();    
-        console.log(data);        
-    })();
-    props.setShow(false);
-  }    
+function handle(){
+  console.log(name,email,password);
+  const url = `/account/create/${name}/${email}/${password}`;
+  (async () => {
+      var res  = await fetch(url);
+      var data = await res.json();    
+      console.log(data);        
+      
+  })();
+  props.setShow(false);
+}    
 
-  return (<>
+  return (
+  <>
 
     Name<br/>
     <input type="input" 
@@ -48,7 +80,7 @@ function CreateForm(props){
       value={name} 
       onChange={e => setName(e.currentTarget.value)} /><br/>
 
-    Email address<br/>
+    Email Address<br/>
     <input type="input" 
       className="form-control" 
       placeholder="Enter email" 
@@ -64,7 +96,15 @@ function CreateForm(props){
 
     <button type="submit" 
       className="btn btn-light" 
-      onClick={handle}>Create Account</button>
+      onClick={() => {
 
-  </>);
+        handle();
+
+      
+      }}>Create Account</button>
+
+  </>
+  );
 }
+
+export default CreateAccount

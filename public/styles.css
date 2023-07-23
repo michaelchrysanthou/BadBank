@@ -1,0 +1,54 @@
+.div{
+
+    background-color: rgba(204, 113, 240, 0.297);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    font-size: 25px;
+    font-family: 'Tourney', cursive;
+    
+  }
+
+  .navbar-brand{
+        /*
+    font-family: 'Frijole', cursive;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Press Start 2P', cursive;
+    font-family: 'Rampart One', cursive;
+    font-family: 'Rubik 80s Fade', cursive;
+    font-family: 'Rubik Vinyl', cursive; 
+    */
+    color: black;
+    font-family: 'Tourney', cursive;
+  }
+  
+  
+  .nav-link:hover {
+    background-color: rgba(133, 239, 228, 0.428);
+  
+  }
+  
+.body{
+  
+    background: url(./images/bg14.jpg);
+    background-size: 128rem;
+    background-repeat: no-repeat;
+    color: rgb(106, 177, 62);
+    font-family: 'Rubik 80s Fade', cursive;
+  
+    
+  }
+
+  .card-body{
+  
+   background-color: rgb(255, 133, 222);
+
+  
+     color: black;
+  }
+
+  .card-header{
+    color: black;
+  }

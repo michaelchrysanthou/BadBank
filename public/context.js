@@ -3,15 +3,20 @@ const Link        = ReactRouterDOM.Link;
 const HashRouter  = ReactRouterDOM.HashRouter;
 const UserContext = React.createContext(null);
 
+
 function Card(props){
   function classes(){
     const bg  = props.bgcolor ? ' bg-' + props.bgcolor : ' ';
-    const txt = props.txtcolor ? ' text-' + props.txtcolor: ' text-white';
+    const txt = props.txtcolor ? ' text-' + props.txtcolor: ' text-black';
     return 'card mb-3 ' + bg + txt;
   }
 
   return (
-    <div className={classes()} style={{maxWidth: "18rem"}}>
+    <div class="text-center">
+      <div>
+
+      </div>
+    <div className={classes()}>
       <div className="card-header">{props.header}</div>
       <div className="card-body">
         {props.title && (<h5 className="card-title">{props.title}</h5>)}
@@ -20,5 +25,6 @@ function Card(props){
         {props.status && (<div id='createStatus'>{props.status}</div>)}
       </div>
     </div>      
+    </div>
   );    
 }
